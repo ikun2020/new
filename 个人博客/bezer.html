@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<title>胡春城的个人网站</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/blog.css" />
+		<link rel="stylesheet" type="text/css" href="css/prism.css"/>
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/blog.js" type="text/javascript" charset="utf-8"></script>
+		
+	</head>
+
+	<body>
+		<nav class="navbar navbar-default" style="background: white;">
+			<div class="container">
+				<div class="navbar-header" style="height: 80px; padding-top: 20px;">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="true">
+        				<span class="sr-only">Toggle navigation</span>
+        				<span class="icon-bar"></span>
+        				<span class="icon-bar"></span>
+        				<span class="icon-bar"></span>
+      				</button>
+					<a href="javascript:" class="navbar-brand"><h1 id="navlogo">胡春城的个人博客</h1></a>
+				</div>
+				<div class="container-fluid hidden-xs" style="height: 20px;"></div>
+				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav" style="font-size: 18px;">
+						<li>
+							<a href="index.html" style="color: #f17f75;" class="demo1">HOME</a>
+						</li>
+						<li>
+							<a href="" class="demo1">HTML</a>
+						</li>
+						<li>
+							<a href="" class="demo1">CSS</a>
+						</li>
+						<li>
+							<a href="" class="demo1">JAVASCRIPT</a>
+						</li>
+						<li>
+							<a href="" class="demo1">LEARN MORE</a>
+						</li>
+					</ul>
+					<form class="navbar-form navbar-right">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Search" id="bdcsMain">
+						</div>
+						<button type="submit" class="btn btn-default">搜索</button>
+					</form>
+				</div>
+			</div>
+		</nav>
+		<!--这里是导航-->
+		<div id="logoimg">
+			<img src="img/learnl.jpg" class="img-responsive" alt="Responsive image" />
+		</div>
+		<!--首页图片-->
+
+		<div class="container">
+			<div class="row">
+				<h2 class="text-center">利用canvas绘制贝塞尔曲线实现波纹效果。</h2>
+				<p class="text-center">March 1，2017</p><br />
+				<p class="text-center">贝塞尔曲线是实现波纹效果的一个神器，实例来自于<a href="http://www.alloyteam.com/">alloyteam</a>团队，感兴趣的可以看下。</p><br />
+				<div class="col-sm-6 col-sm-offset-3">
+					<h3><b>HTML部分</b></h3>
+					<pre><code class="language-html">&lt;canvas id=&quot;canvasOne&quot; width=&quot;500&quot; height=&quot;300&quot;&gt;
+&lt;/canvas&gt;</code></pre><br />
+					
+ 				<h3><b>CSS部分</b></h3>
+ 				<pre><code class="language-css">&lt;style type=&quot;text/css&quot;&gt;
+body {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+canvas {
+  border: 1px solid rgba(0,0,0,.4);
+  box-shadow: 0 0 3px rgba(0,0,0,.15);
+  border-radius: 5px;
+}
+&lt;/style&gt;</code></pre><br />
+				
+				<h3><b>Javascript部分</b></h3>
+				<pre><code class="language-javascript" >&lt;script type=&quot;text/javascript&quot;&gt;
+    	window.addEventListener('load', eventWindowLoaded, false);
+
+    var Debugger = function() {};
+
+    Debugger.log = function(message) {
+        try {
+            console.log(message);
+        } catch (exception) {
+            return;
+        }
+    }
+
+    function eventWindowLoaded() {
+        canvasApp();
+    }
+
+    function canvasApp() {
+
+        var theCanvas = document.getElementById('canvasOne');
+        var ctx = theCanvas.getContext('2d');
+
+        Debugger.log('Drawing Canvas');
+
+        window.requestAnimFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function(callback) {
+            window.setTimeout(callback, 1000 / 60);
+        }
+
+        var waveWidth = 700,
+            offset = 0,
+            waveHeight = 8,
+            waveCount = 5,
+            startX = -150,
+            startY = 308,
+            progress = 0,
+            progressStep = 1,
+            d2 = waveWidth / waveCount,
+            d = d2 / 2,
+            hd = d / 2,
+            img = new Image();
+
+        ctx.fillStyle = '#4bf6ee';
+
+
+        function drawScreen() {
+
+            offset -= 5;
+            progress += progressStep;
+
+            if (progress &gt; 220 || progress &lt; 0) {
+                progressStep *= -1;
+            }
+
+            if (-1 * offset === d2) {
+                offset = 0;
+            }
+
+            ctx.clearRect(0, 0, theCanvas.width, theCanvas.height);
+            ctx.beginPath();
+
+            var offsetY = startY - progress;
+            ctx.moveTo(startX - offset, offsetY);
+
+            for (var i = 0; i &lt; waveCount; i++) {
+                var dx = i * d2;
+                var offsetX = dx + startX - offset;
+
+                ctx.quadraticCurveTo(offsetX + hd, offsetY + waveHeight, offsetX + d, offsetY);
+                ctx.quadraticCurveTo(offsetX + hd + d, offsetY - waveHeight, offsetX + d2, offsetY);
+            }
+
+            ctx.lineTo(startX + waveWidth, 600);
+            ctx.lineTo(startX, 600);
+            ctx.fill();
+
+            ctx.globalCompositeOperation = 'destination-atop';
+            ctx.drawImage(img, (theCanvas.width - img.width) / 2, (theCanvas.height - img.height) / 2);
+
+            requestAnimFrame(drawScreen);
+
+        }
+
+        img.onload = function() {
+            drawScreen();
+        }
+
+        img.src = 'img/alloy.png';
+    }
+    &lt;/script&gt;</code></pre><br /><br />
+ 				
+				<h4><b><a href="demo/bezercurve.html">预览最终效果</a></b></h4><br />
+  
+				</div>
+				
+			</div>
+			
+		</div>
+
+				
+
+				
+
+		<div class="container text-center">
+			<br /><br /><br />
+			<footer>
+				<p>&copy; 2017
+					<a href="http://www.hrllo.com">hrllo.com</a>&nbsp;
+					<a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" style="color: black;">粤ICP备16111977号-1</a>
+				</p>
+			</footer>
+		</div>
+		
+		
+		<!--footer-->
+
+		<script type="text/javascript">
+			(function() { document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E')); var bdcs = document.createElement('script');
+				bdcs.type = 'text/javascript';
+				bdcs.async = true;
+				bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=9458165304714167174' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date() / 3600000); var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(bdcs, s); })();
+		</script>
+		<script src="js/prism.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

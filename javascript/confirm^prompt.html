@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		  <input type="button" value="新窗口打开网站" onclick="hcc()" /> 
+		  <script type="text/javascript">
+		  	function hcc(){
+		  		var haha=confirm("确定要打开网址吗？");
+		  		var xixi
+		  		if(haha){
+		  			xixi=prompt("请输入打开的网址","http://www.imooc.com");
+		  			window.open(xixi,'_blank')
+		  		}
+		  	}
+
+		  </script>
+	</body>
+</html>

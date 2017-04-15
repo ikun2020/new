@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8" />
+		<title>Document</title>
+		<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+		<script type="text/javascript">
+			
+					$(document).scroll(function(){  
+            var top=$(document).scrollTop();  
+            if(top<500){  
+                $('#top').hide();  
+            }  
+            else{  
+                $('#top').show();  
+            }  
+        })  
+		
+		</script>
+	</head>
+
+	<body>
+		<div id="" style="height: 3000px;">
+			1
+		</div>
+		<div>2</div>
+		<div style="position: fixed; top: 90%; right: 5%; display: none;" id="top">
+						<a href="javascript:" class="btn btn-default" style="background-color:  rgba(0, 0, 0, 0.1); padding: 6px 10px 6px 10px;">Top</a>
+					</div>
+
+		
+	</body>
+
+</html>

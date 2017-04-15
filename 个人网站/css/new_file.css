@@ -1,0 +1,42 @@
+*{
+	padding: 0px;
+	margin: 0px;
+}
+.ig{
+	position: absolute;
+}
+.btn{
+	position: absolute;
+	height: 90px;
+	width: 60px;
+	background: rgba(0,0,0,0.4);
+	color: #fff;
+	text-align: center;
+	line-height: 90px;
+	font-size: 40px;
+	top: 155px;
+	cursor: pointer;
+}
+.btn2{
+	right: 0px;
+}
+#tabs{
+	position: absolute;
+	top: 380px;
+	left: 600px;
+}
+.tab{
+	width: 30px;
+	height: 30px;
+	background-color: rgba(0,0,0,0.4);
+	float: left;
+	color: white;
+	text-align: center;
+	line-height: 30px;
+	border-radius: 100%;
+	margin-right: 10px;
+	cursor: pointer;
+}
+.bg{
+	background-color: gold;
+}

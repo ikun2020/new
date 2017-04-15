@@ -1,0 +1,57 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+#navlogo{
+	font-size: 20px;
+	color: #8C8C8C;
+	cursor: pointer;
+	position: relative;
+	bottom: 20px;
+}
+#boxmain a{
+	text-decoration: none;
+}
+
+#logoimg{
+	margin-top: -20px;
+	margin-bottom: 6rem;
+}
+.demo1 {
+	text-decoration: none;
+	font-size: 20px;
+}
+.demo1:before {
+	content: "";
+	position: absolute;
+	left: 50%;
+	bottom: -2px;
+	width: 0;
+	height: 2px;
+	background: #f17f75;
+	transition: all .3s;
+}
+.demo1:hover:before {
+	width: 100%;
+	left: 0;
+}
+#bs-example-navbar-collapse-1 ul li a:hover {
+	color: #f17f75;
+}
+#herotext{
+	font-size: 18px;
+	
+}
+#fellowme ol{
+	font-size: 16px;
+}
+#backtop{
+	position: fixed; 
+	bottom:8%;; 
+	right: 5%;
+	display: none;
+}
+#backtop a{
+	background-color:  rgba(0, 0, 0, 0.1);
+	 padding: 6px 10px 6px 10px;
+}

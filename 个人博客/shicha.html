@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/blog.css" />
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/blog.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-default" style="background: white;">
+			<div class="container" >
+				<div class="navbar-header" style="height: 80px; padding-top: 20px;">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="true">
+        				<span class="sr-only">Toggle navigation</span>
+        				<span class="icon-bar"></span>
+        				<span class="icon-bar"></span>
+        				<span class="icon-bar"></span>
+      				</button>
+					<a href="javascript:" class="navbar-brand"><h1 id="navlogo">胡春城的个人博客</h1></a>
+				</div>
+				<div class="container-fluid" style="height: 20px;"></div>
+				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav" style="font-size: 18px;">
+						<li>
+							<a href="index.html" class="demo1">HOME</a>
+						</li>
+						<li>
+							<a href="" class="demo1">HTML</a>
+						</li>
+						<li>
+							<a href="" class="demo1">CSS</a>
+						</li>
+						<li>
+							<a href="" class="demo1">JAVASCRIPT</a>
+						</li>
+						<li>
+							<a href="" class="demo1">LEARN MORE</a>
+						</li>
+					</ul>
+					<form class="navbar-form navbar-right">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Search" id="bdcsMain">
+						</div>
+						<button type="submit" class="btn btn-default">搜索</button>
+					</form>
+			</div>
+			</div>
+		</nav>
+		<div id="logoimg">
+			<img src="img/learnl.jpg" class="img-responsive" alt="Responsive image" />
+		</div>
+
+		<div class="container" id="herotext">
+			<div class="row">
+				<div class="col-sm-12">
+					<h2 style="text-align: center;">如何使用CSS和Javascript制作多层视差图</h2>
+					<br /><br />
+					<img src="img/1-n031qAVaSjia44OBenLOnw.png" class="img-responsive center-block" alt="Responsive image" style="width: 100%;" />
+					<br />
+					<div class="col-sm-8 col-sm-offset-2">
+						<p>Hello!本文将会向您展示如何创建一个简单的多层次的图案，以独特的方式展示您的网站。将使用CSS和javascript（不使用jQuery！）。</p><br />
+						<p>前提：您需要掌握一定的css和javascript基础知识，如果您还在努力学习中，
+							<a href="http://www.w3school.com.cn" target="_blank">立即前往</a>
+						</p><br />
+						<h4><a href="parallax.html">预览最终效果</a></h4><br />
+						<h3><b>准备插图</b></h3>
+						<p>先将画面切成多层。最佳情况是您自行绘制图片，或者您也可以访问预览效果网站点击f12获得源文件。</p><br />
+						<p>如果您不想那么麻烦，没问题。我将为您提供下载链接</p>
+						<h4><a href="http://pan.baidu.com/s/1i498wE5" target="_blank">点击下载</a></h4><br /><br />
+						<img src="img/1-AMb-_gXiOj8B_kK1YkqBKw.png" class="img-responsive center-block" alt="Responsive image" /><br /><br />
+						<p>将图片分割成具有透明背景（层）的多个png文件，背景层将比前景层的移动速度满。这样将更优雅的过度到下一页，图片的底部和背景颜色一致，在底部添加了一个轻微的前景线，并确保它在底部不透明。</p>
+					</div>
+					<div class="col-sm-12">
+						<br />
+						<img src="img/1-MKLaI7GQ1xn2e_fH0Y69hg.png" class="img-responsive center-block" alt="Responsive image" />
+						<p style="text-align: center; font-size: 15px;color: #8C8C8C;">右边的版本下方添加了一个线条，这将给我们更好的过渡到下一页。</p>
+					</div>
+					<div class="col-sm-8 col-sm-offset-2">
+						<h3><b>现在开始</b></h3>
+						<br />
+						<p>从HTML结构开始。创建一个父容器，id=“hero” 。然后，我们要添加class=“layer“的类和 data-type='parallax'。“</p>
+						<code>
+								#hero
+ 								<br /> .layer{“data-type” => “parallax”}
+ 								<br /> .layer{“data-type” => “parallax”}
+ 								<br /> .layer{“data-type” => “parallax”}
+ 								<br /> .layer{“data-type” => “parallax”}
+ 								<br /> .layer{“data-type” => “parallax”}
+						</code>
+						<br /><br />
+						<p>然后为其设置基本样式，这里将插图的高度设置成了800px。</p><br />
+						<code>
+							#hero&nbsp;{<br />
+ 										&nbsp;&nbsp;&nbsp;height: 800px;<br />
+ 								 		&nbsp;&nbsp;&nbsp;overflow: hidden;<br />
+  										&nbsp;&nbsp;&nbsp;position: relative;<br />
+									&nbsp;}
+						</code>
+						<code>
+							<br />.layer {<br />
+ 										&nbsp;&nbsp;&nbsp;background-position: bottom center;<br />
+  										&nbsp;&nbsp;&nbsp;background-size: auto;<br />
+  										&nbsp;&nbsp;&nbsp;background-repeat: no-repeat;<br />
+  										&nbsp;&nbsp;&nbsp;width: 100%;<br />
+  										&nbsp;&nbsp;&nbsp;height: 800px;<br />
+ 										&nbsp;&nbsp;&nbsp;position: fixed;<br />
+ 										&nbsp;&nbsp;&nbsp;z-index: -1;<br />
+									}
+						</code><br />
+						<br />
+						<p>接下来我们要做的是添加我们以前准备的图层图像。创建另一组类，每层一个。然后，设置图片地址。</p>
+						<p>还有，不要忘了给刚添加的图层添加data-type属性</p><br />
+						<h3><b>javascript</b></h3>
+						<p>现在，添加一个事件来检测用户是否在向下滚动。</p><br />
+						<code>
+							window.addEventListener ‘scroll’, (event)
+						</code>
+						<br /><br />
+						<p>事件目标可以是Document中的元素，Document本身，窗口或支持事件的任何其他对象（如XMLHttpRequest）。</p>
+						<p>然后让将已经垂直滚动的像素值存储到topDistance变量中。然后将使用pageYOffset 属性。</p>
+						<br />
+						<code>
+								window.addEventListener'scroll'，（event） - > 
+  								topDistance = @pageYOffset
+						</code><br /><br />
+						<p>然后，我们要选择我们插图中的所有图层，并将它们存储到一个名为“ layers ” 的变量中。</p>
+						<code>
+								window.addEventListener ‘scroll’, (event) -><br />
+  								topDistance = @pageYOffset<br />
+  								layers = document.querySelectorAll("[data-type='parallax']")<br />
+						</code><br /><br />
+						<p>接下来我们要做的是循环遍历所有层，为了循环遍历所有元素，会用到for循环。将通过创建一个变量来开始循环。然后从HTML中指定的data-depth属性中取值。</p>
+						<code>
+									#hero<br />
+ 										 .layer.layer-01{“data-type” => “parallax”, "data-depth" => "0.10"}<br />
+  										.layer.layer-02{“data-type” => “parallax”, "data-depth" => "0.20"}<br />
+  										.layer.layer-03{“data-type” => “parallax”, "data-depth" => "0.50"}<br />
+ 										.layer.layer-04{“data-type” => “parallax”, "data-depth" => "0.80"}<br />
+  										.layer.layer-05{“data-type” => “parallax”, "data-depth" => "1.00"}<br />
+						</code>
+						<br />
+						<p>最后，使用css中transform translate来定义动画。</p>
+						<code>
+							for layer in layers<br />
+  									depth = layer.getAttribute(‘data-depth’)<br />
+ 									movement = -(topDistance * depth)<br />
+									translate3d = 'translate3d(0, ' + movement + 'px, 0)'<br />
+  									layer.style['-webkit-transform'] = translate3d<br />
+ 									layer.style['-moz-transform'] = translate3d<br />
+									layer.style['-ms-transform'] = translate3d<br />
+ 									layer.style['-o-transform'] = translate3d<br />
+  									layer.style.transform = translate3d<br />
+						</code>
+						<br />
+						<h3><b>移动端</b></h3>
+						<br />
+						<p>非常遗憾，在移动设备上将关闭视差效果，使用静态图片替换。从而给浏览者更好的观看体验。</p>
+						<br /><br />
+						<h2><a href="parallax.html">预览最终效果</a></h2>
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+		<div id="backtop">
+						<a class="btn btn-default" value="Top">Top</a>
+		</div>
+
+		<div class="container text-center">
+			<br /><br /><br />
+			<footer>
+				<p>&copy; 2017
+					<a href="http://www.hrllo.com">hrllo.com</a>&nbsp;
+					<a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" style="color: black;">粤ICP备16111977号-1</a>
+				</p>
+			</footer>
+		</div>
+		
+
+	</body>
+
+</html>

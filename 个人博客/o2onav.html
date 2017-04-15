@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<title>胡春城的个人网站</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/blog.css" />
+		<link rel="stylesheet" type="text/css" href="css/prism.css"/>
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/blog.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+		<nav class="navbar navbar-default" style="background: white;">
+			<div class="container">
+				<div class="navbar-header" style="height: 80px; padding-top: 20px;">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="true">
+        				<span class="sr-only">Toggle navigation</span>
+        				<span class="icon-bar"></span>
+        				<span class="icon-bar"></span>
+        				<span class="icon-bar"></span>
+      				</button>
+					<a href="javascript:" class="navbar-brand"><h1 id="navlogo">胡春城的个人博客</h1></a>
+				</div>
+				<div class="container-fluid hidden-xs" style="height: 20px;"></div>
+				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav" style="font-size: 18px;">
+						<li>
+							<a href="index.html" style="color: #f17f75;" class="demo1">HOME</a>
+						</li>
+						<li>
+							<a href="" class="demo1">HTML</a>
+						</li>
+						<li>
+							<a href="" class="demo1">CSS</a>
+						</li>
+						<li>
+							<a href="" class="demo1">JAVASCRIPT</a>
+						</li>
+						<li>
+							<a href="" class="demo1">LEARN MORE</a>
+						</li>
+					</ul>
+					<form class="navbar-form navbar-right">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Search" id="bdcsMain">
+						</div>
+						<button type="submit" class="btn btn-default">搜索</button>
+					</form>
+				</div>
+			</div>
+		</nav>
+		<!--这里是导航-->
+		<div id="logoimg">
+			<img src="img/learnl.jpg" class="img-responsive" alt="Responsive image" />
+		</div>
+		<!--首页图片-->
+
+		<div class="container">
+			<div class="row">
+				<h2 class="text-center">电商网站首页侧边栏导航的实现</h2>
+				<p class="text-center">March 11，2017</p><br />
+				<p class="text-center">需要引入jQuery库。插件用于PC端，个人制作，仅供参考。</p><br />
+				<div class="col-sm-6 col-sm-offset-3">
+					<h3><b>HTML部分</b></h3>
+					<pre><code class="language-html">&lt;div class=&quot;box&quot;&gt;
+   &lt;div class=&quot;box1&quot;&gt;
+    &lt;ul&gt;
+     &lt;li&gt;
+      &lt;span&gt;家用电器&lt;/span&gt;
+      &lt;div class=&quot;right&quot;&gt;
+       &lt;h3&gt;家用电器&lt;/h3&gt;
+       &lt;p&gt;家用电器啦啦啦&lt;/p&gt;
+      &lt;/div&gt;
+     &lt;/li&gt;
+     &lt;li&gt;
+      &lt;span&gt;手机数码&lt;/span&gt;
+      &lt;div class=&quot;right&quot;&gt;
+       &lt;h3&gt;手机数码&lt;/h3&gt;
+       &lt;p&gt;手机数码啦啦啦&lt;/p&gt;
+      &lt;/div&gt;
+     &lt;/li&gt;
+     &lt;li&gt;
+      &lt;span&gt;电脑办公&lt;/span&gt;
+      &lt;div class=&quot;right&quot;&gt;
+       &lt;h3&gt;电脑办公&lt;/h3&gt;
+       &lt;p&gt;电脑办公啦啦啦&lt;/p&gt;
+      &lt;/div&gt;
+     &lt;/li&gt;
+     &lt;li&gt;
+      &lt;span&gt;家居家电&lt;/span&gt;
+      &lt;div class=&quot;right&quot;&gt;
+       &lt;h3&gt;家居家电&lt;/h3&gt;
+       &lt;p&gt;家居家电啦啦啦&lt;/p&gt;
+      &lt;/div&gt;
+     &lt;/li&gt;
+     &lt;li&gt;
+      &lt;span&gt;男装女装&lt;/span&gt;
+      &lt;div class=&quot;right&quot;&gt;
+       &lt;h3&gt;男装女装&lt;/h3&gt;
+       &lt;p&gt;男装女装啦啦啦&lt;/p&gt;
+      &lt;/div&gt;
+     &lt;/li&gt;
+     &lt;li&gt;
+      &lt;span&gt;美妆个护&lt;/span&gt;
+      &lt;div class=&quot;right&quot;&gt;
+       &lt;h3&gt;美妆个护&lt;/h3&gt;
+       &lt;p&gt;美妆个护啦啦啦&lt;/p&gt;
+      &lt;/div&gt;
+     &lt;/li&gt;
+     &lt;li&gt;
+      &lt;span&gt;运动户外&lt;/span&gt;
+      &lt;div class=&quot;right&quot;&gt;
+       &lt;h3&gt;运动户外&lt;/h3&gt;
+       &lt;p&gt;运动户外啦啦啦&lt;/p&gt;
+      &lt;/div&gt;
+     &lt;/li&gt;
+    &lt;/ul&gt;
+   &lt;/div&gt;
+   &lt;div class=&quot;box2&quot;&gt;
+    &lt;img src=&quot;img/jd.jpg&quot;/&gt;
+    &lt;div class=&quot;img&quot;&gt;
+     &lt;img src=&quot;img/jd1.jpg&quot;/&gt;
+     &lt;img src=&quot;img/jd2.jpg&quot;/&gt;
+    &lt;/div&gt;
+   &lt;/div&gt;
+ &lt;/div&gt;</code></pre><br /><br />
+ 				<h3><b>CSS部分</b></h3>
+ 				<pre><code class="language-css">*{
+    margin: 0;
+    padding: 0;
+   }
+   .box{
+    width: 1000px;
+    height: 480px;
+    margin: 0 auto;
+    padding-top: 50px;
+   }
+   .box1{
+    width: 200px;
+    height: 480px;
+    background: #6e6568;
+    float: left;
+    position: relative;
+   }
+   .box2{
+    height: 480px;
+    float: left;
+    margin-left: 10px;
+   }
+   .img img:last-child{
+    float: right
+   }
+   .img img{
+    padding-top: 5px;
+   }
+   .box1 ul li{
+    list-style: none;
+    line-height: 40px;
+    color: #fff;
+   }
+   .box1 ul li{
+    padding-left: 30px;
+   }
+   .right{
+    width:800px ;
+    height: 480px;
+    background: #eee;
+    color: black;
+    position: absolute;
+    top: 0px;
+    left: 200px;
+    display: none;
+   }</code></pre><br /><br />
+   					<h3><b>Javascript部分</b></h3>
+   					<pre><code class="language-javascript">&lt;script type=&quot;text/javascript&quot;&gt;
+   $('.box1 li').mouseenter(function(){
+    $(this).css({'background':"#eee"});
+    $(this).find('span').css({'color':'black'})
+    $('.box1 li').not($(this)).css({'background':'#6e6568'});
+    $(this).find('.right').show();
+    $('.box1 li').not((this).find('.right')).hide();
+   })
+   $('.box1 li').mouseleave(function(){
+    $(this).find('.right').hide();
+    $(this).find('span').css({'color':'#fff'});
+    $(this).css({'background':'#6e6568'})
+   })
+ &lt;/script&gt;
+  </code></pre><br /><br />
+				<h4><b><a href="demo/O20nav.html">预览最终效果</a></b></h4><br />
+  
+				</div>
+				
+			</div>
+			
+		</div>
+
+				
+
+				
+
+		<div class="container text-center">
+			<br /><br /><br />
+			<footer>
+				<p>&copy; 2017
+					<a href="http://www.hrllo.com">hrllo.com</a>&nbsp;
+					<a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" style="color: black;">粤ICP备16111977号-1</a>
+				</p>
+			</footer>
+		</div>
+		
+		
+		<!--footer-->
+
+		<script type="text/javascript">
+			(function() { document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E')); var bdcs = document.createElement('script');
+				bdcs.type = 'text/javascript';
+				bdcs.async = true;
+				bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=9458165304714167174' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date() / 3600000); var s = document.getElementsByTagName('script')[0];
+				s.parentNode.insertBefore(bdcs, s); })();
+		</script>
+		<script src="js/prism.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>

@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+		<title>一个简单的jQuery手风琴代码</title>
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+		<link rel="stylesheet" type="text/css" href="css/blog.css" />
+		<link rel="stylesheet" type="text/css" href="css/prism.css"/>
+		<script src="js/jquery-3.1.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/bootstrap.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/blog.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+
+	<body>
+
+		<nav class="navbar navbar-default" style="background: white;">
+			<div class="container">
+				<div class="navbar-header" style="height: 80px; padding-top: 20px;">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="true">
+        				<span class="sr-only">Toggle navigation</span>
+        				<span class="icon-bar"></span>
+        				<span class="icon-bar"></span>
+        				<span class="icon-bar"></span>
+      				</button>
+					<a href="javascript:" class="navbar-brand"><h1 id="navlogo">胡春城的个人博客</h1></a>
+				</div>
+				<div class="container-fluid hidden-xs" style="height: 20px;"></div>
+				<div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav" style="font-size: 18px;">
+						<li>
+							<a href="index.html" style="color: #f17f75;" class="demo1">HOME</a>
+						</li>
+						<li>
+							<a href="" class="demo1">HTML</a>
+						</li>
+						<li>
+							<a href="" class="demo1">CSS</a>
+						</li>
+						<li>
+							<a href="" class="demo1">JAVASCRIPT</a>
+						</li>
+						<li>
+							<a href="" class="demo1">LEARN MORE</a>
+						</li>
+					</ul>
+					<form class="navbar-form navbar-right">
+						<div class="form-group">
+							<input type="text" class="form-control" placeholder="Search" id="bdcsMain">
+						</div>
+						<button type="submit" class="btn btn-default">搜索</button>
+					</form>
+				</div>
+			</div>
+		</nav>
+		<div id="logoimg">
+			<img src="img/learnl.jpg" class="img-responsive" alt="Responsive image" />
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<h2 class="text-center">一个超简单的jQuery手风琴代码</h2>
+				<p class="text-center">March 22，2017</p><br />
+				<p class="text-center">只需要几行代码即可实现的手风琴效果。需要引入jQuery库。插件用于PC端，个人制作，仅供参考。</p><br />
+				<div class="col-sm-6 col-sm-offset-3">
+					<h3><b>html部分</b></h3>
+				</div>
+			</div>
+			<div class="col-sm-6 col-sm-offset-3">
+				<pre><code class="language-html">&lt;div id=&quot;hcc&quot;&gt;
+ &lt;ul&gt;
+  &lt;li class=&quot;p1&quot; style=&quot;background:#4285f4&quot;&gt;
+   &lt;a href=&quot;javascript:&quot;&gt;
+    &lt;p&gt;G&lt;/p&gt;
+   &lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;p2&quot; style=&quot;background:#ea4335&quot;&gt;
+   &lt;a href=&quot;javascript:&quot;&gt;
+    &lt;p&gt;O&lt;/p&gt;
+   &lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;p3&quot; style=&quot;background:#fbbc05&quot;&gt;
+   &lt;a href=&quot;javascript:&quot;&gt;
+    &lt;p&gt;O&lt;/p&gt;
+   &lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;p4&quot; style=&quot;background:#34a853&quot;&gt;
+   &lt;a href=&quot;javascript:&quot;&gt;
+    &lt;p&gt;G&lt;/p&gt;
+   &lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;p5&quot; style=&quot;background:#ea4335&quot;&gt;
+   &lt;a href=&quot;javascript:&quot;&gt;
+    &lt;p&gt;L&lt;/p&gt;
+   &lt;/a&gt;
+  &lt;/li&gt;
+  &lt;li class=&quot;p6&quot; style=&quot;width: 600px; background:#fbbc05&quot;&gt;
+   &lt;a href=&quot;javascript:&quot;&gt;
+    &lt;p&gt;E&lt;/p&gt;
+   &lt;/a&gt;
+  &lt;/li&gt;
+ &lt;/ul&gt;
+&lt;/div&gt;</code></pre><br /><br />
+
+				<h3><b>CSS部分</b></h3>
+				<pre>
+					<code class="language-css">
+*{
+margin: 0px;
+padding: 0px;
+font-family:"微软雅黑";
+font-size: 20px;
+text-decoration: none;
+}
+#hcc{
+width: 1200px;
+height: 400px;
+margin: 100px auto;
+}
+#hcc ul li{
+list-style-type: none;
+width: 100px;
+height: 400px;
+float: left;
+}
+					</code>
+				</pre><br /><br />
+				<h3><b>jQuery部分</b></h3>
+				<pre>
+					<code class="language-javascript">
+$(function(){
+ $("#hcc ul li").mouseover(function(){
+ $(this).stop(true).animate({width:"600px"},500)
+ .siblings().stop(true).animate({width:"100px"},500)
+});
+});
+					</code>
+				</pre><br /><br />
+				<h4><b><a href="demo/jqAccordion.html">预览最终效果</a></b></h4><br />
+			</div>
+			
+			
+		</div>
+		
+		<div id="backtop">
+						<a class="btn btn-default" value="Top">Top</a>
+		</div>
+
+		<div class="container text-center">
+			<br /><br /><br />
+			<footer>
+				<p>&copy; 2017
+					<a href="http://www.hrllo.com">hrllo.com</a>&nbsp;
+					<a href="http://www.miitbeian.gov.cn/publish/query/indexFirst.action" style="color: black;">粤ICP备16111977号-1</a>
+				</p>
+			</footer>
+		</div>
+		
+		<script src="js/prism.js" type="text/javascript" charset="utf-8"></script>
+	</body>
+
+</html>
